@@ -1,0 +1,30 @@
+body.container{
+	display:flex;
+  align-items:center;
+  width:100%;
+  
+}
+#error{
+  color: red;
+}
+.containerNav{
+	float:left;
+	margin: 0;
+    padding: 0;
+    list-style: none;
+}
+a:active{
+	background-color: red;
+}
+#result{
+	height:50%;
+}
+footer { 
+            position: fixed; 
+            padding: 10px 10px 0px 10px; 
+            bottom: 0; 
+            width: 100%; 
+            /* Height of the footer*/  
+            height: 70px; 
+            
+        } 

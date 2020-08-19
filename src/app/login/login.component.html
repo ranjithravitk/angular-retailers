@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Retail Shop</title>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+
+</head>
+
+<body>
+	
+
+	<div ng-app="login" ng-controller="myCtrl">
+		<div class="container-fixed">
+			<div class="row align-items-center ">
+				<div class="col-4 mx-auto">
+					<div class="card bg-dark text-light">
+						<div class="card-body">
+							<form (ngSubmit)="verify()" #myForm="ngForm">
+								<div class="form-group">
+									<label for="exampleInputEmail1">Username</label> <input
+										type="text" class="form-control" id="exampleInputEmail1"
+										aria-describedby="emailHelp" placeholder="Enter username"
+										name="myName" [(ngModel)]=login.name id="myName" #myName="ngModel"required> 
+										<div *ngIf="myName.touched && myName.invalid" id="error">
+                                          Enter the value
+										</div>
+								</div>
+								<div class="form-group">
+									<label for="exampleInputPassword1">Password</label> <input
+										type="password" class="form-control"
+										id="exampleInputPassword1" placeholder="Password"
+										name="myPassword" [(ngModel)]=login.password #myPassword="ngModel"required> 
+										<div *ngIf="myPassword.touched && myPassword.invalid" id="error">
+											Enter the value
+										  </div>
+								</div>
+
+								<input type="submit" class="btn btn-primary mb-3"[disabled]="!myForm.form.valid" value="Login"><br>
+								<small>Don't have an account? <a [routerLink]="['/signup']" >sign
+										up</a>
+								</small>
+							</form>
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		
+
+	</div>
+
+	
+	<script>
+		
+	</script>
+
+
+</body>
+</html>

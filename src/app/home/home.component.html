@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Retail Shop</title>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+   
+</head>
+
+<body>
+    <div class="card  bg-dark">
+        <div class="card-header d-flex justify-content-end text-warning">
+          Hi,{{name}}!!!
+        </div>
+</div><br>
+<div *ngFor="let p of items">
+<div class="row d-flex justify-content-center">
+   
+      <div class="card   w-75">
+        
+        <div class="card-body ">
+          <div class="container">
+          
+          <div class="row">
+            <div class="col-sm">
+              <h3 class="card-title">{{p.name}}</h3>
+            </div>
+            <div class="col-sm">
+           
+            </div>
+            <div class="col-sm">
+              
+            </div>
+          </div>
+         
+            <div class="row">
+              <div class="col-sm">
+               <strong>Price:</strong> 
+              </div>
+              <div class="col-sm">
+               Rs. {{p.price}}
+              </div>
+              <div class="col-sm">
+                
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-sm align-self-center">
+                <strong>Quantity:</strong> 
+              </div>
+              <div class="col-sm">
+                <input
+                type="text" class="form-control" 
+                name="quantity" [(ngModel)]=p.quantity  required>
+              </div>
+              <div class="col-sm">
+                
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-sm">
+               <strong>Total:</strong> 
+              </div>
+              <div class="col-sm">
+               Rs. {{p.quantity*p.price}}
+              </div>
+              <div class="col-sm">
+                
+              </div>
+            </div>
+          </div>
+           
+          
+           
+           </div>
+          
+        
+          <button class="btn btn-primary" (click)="add(p)">Add to cart</button>
+        </div>
+      </div>
+    <br>
+   </div>
+   <a [routerLink]="['/cart']" >cart</a>
+</body>
+</html>
