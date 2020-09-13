@@ -22,11 +22,11 @@
 
 <body>
    
- 
-
+  <div *ngFor="let p of products">
+    
 <div class="row d-flex justify-content-center">
-   
-      <div class="card   w-75">
+  
+      <div class="card   w-75 bg-dark text-light">
         
         <div class="card-body ">
           <div class="container">
@@ -36,11 +36,9 @@
                 <h3 class="card-title">{{p.name}}</h3>
               </div>
               <div class="col-sm">
+                <div class="d-flex flex-row-reverse"> <button class="btn btn-warning" (click)="remove(p) " >Remove from cart</button></div>
+              </div>
              
-              </div>
-              <div class="col-sm">
-                
-              </div>
             </div>
            
               <div class="row">
@@ -60,12 +58,10 @@
                   <strong>Quantity:</strong> 
                 </div>
                 <div class="col-sm">
-                  <input
-                  type="text" class="form-control" 
-                  name="quantity" [(ngModel)]=p.quantity  required>
+                 {{p.userQuantity}}
                 </div>
                 <div class="col-sm">
-                  
+                 
                 </div>
               </div>
               <br>
@@ -74,24 +70,32 @@
                  <strong>Total:</strong> 
                 </div>
                 <div class="col-sm">
-                 Rs. {{p.quantity*p.price}}
+                 Rs. {{p.userQuantity*p.price}}
                 </div>
                 <div class="col-sm">
                   
                 </div>
               </div>
+             
+                 
             </div>
              
-            
+           
              
-             </div>
-          </div>
+           
+          
         
           
         </div>
       </div>
-    <br>
+      </div>
+    
  
-   
+    </div>
+    <br>
+    <div *ngIf="check">
+    <div class="d-flex d-flex justify-content-around"> <button class="btn btn-primary"(click)="place()">place Order</button><button class="btn btn-primary" (click)="back()">Go Back To Home</button></div></div>
+    <div *ngIf="!check">
+      <div class="d-flex d-flex justify-content-around"> {{message}}</div><br><div class="d-flex d-flex justify-content-around"><button class="btn btn-primary" (click)="back()">Go Back To Home</button></div></div>
 </body>
 </html>

@@ -20,78 +20,85 @@
 
 <body>
    
-<div *ngFor="let p of items">
+
 <div class="row d-flex justify-content-center">
    
       <div class="card   w-75">
         
-        <div class="card-body bg-light text-dark ">
+        <div class="card-body ">
           <div class="container">
           
           <div class="row">
             <div class="col-sm">
-              <h3 class="card-title">{{p.name}}</h3>
+              <strong>Name:</strong>
             </div>
             <div class="col-sm">
-           
+                <input
+                type="text" class="form-control" 
+                name="name" [(ngModel)]=prod.name  required>
             </div>
             <div class="col-sm">
               
             </div>
           </div>
-         
+         <br>
             <div class="row">
               <div class="col-sm">
                <strong>Price:</strong> 
               </div>
               <div class="col-sm">
-               Rs. {{p.price}}
+               
+              <input 
+              type="text" class="form-control" 
+              name="price" [(ngModel)]=prod.price  required>
               </div>
               <div class="col-sm">
                 
               </div>
             </div>
+            </div>
             <br>
             <div class="row">
-              <div class="col-sm align-self-center">
+              
+                  <div class="col-sm">
                 <strong>Quantity:</strong> 
               </div>
               <div class="col-sm">
-                <p *ngIf="p.quantity==0" class="text-danger">out of Stock!!!</p>
-                <input *ngIf="p.quantity!=0"
+                <input
                 type="text" class="form-control" 
-                name="quantity" [(ngModel)]=p.userQuantity  required>
-              </div>
-              <div class="col-sm">
-               
-              </div>
-            </div>
-            <br>
-            <div class="row">
-              <div class="col-sm">
-               <strong>Total:</strong> 
-              </div>
-              <div class="col-sm">
-               Rs. {{p.userQuantity * p.price}}
+                name="quantity" [(ngModel)]=prod.quantity  required>
               </div>
               <div class="col-sm">
                 
               </div>
             </div>
-          </div>
+        
+            <br>
            
           
            
-           </div>
+         </div>
+         
           
         
-          <button class="btn btn-primary"  [disabled]="p.quantity==0" (click)="add(p)">Add to cart</button>
+          <button class="btn btn-primary" (click)="add()" >Add to list </button>
         </div>
-        
       </div>
-     
+      <div class="row d-flex justify-content-center">
+      <div *ngIf="added==true" class="card w-75">
+        <div class="card-header text-success">
+          Added Sucessfully!!
+        </div>
+        </div>
+        <div *ngIf="added==false" class="card w-75">
+          <div class="card-header text-danger">
+            Item already exists!!!
+          </div>
+          </div>
+      </div>
     <br>
-   </div>
-  
+
+    <div class="d-flex d-flex justify-content-around"> <button class="btn btn-primary" (click)="list()">Go To List</button></div>
+   
 </body>
 </html>

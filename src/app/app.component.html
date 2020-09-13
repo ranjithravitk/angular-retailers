@@ -3,6 +3,8 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 
 <head>
@@ -13,6 +15,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <!-- Bootstrap CSS -->
+
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
@@ -20,26 +23,30 @@
 
 </head>
 <body>
-<nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand text-dark" href="#"><i
+<nav class="navbar navbar-light bg-dark">
+    <a class="navbar-brand text-light" href="#"><i
         class='fas fa-shopping-basket'></i> Retailers</a>
     <ul class="nav justify-content-end">
-        <li class="nav-item text-dark"><a
-            class="nav-link text-dark active" href="#">About Us</a></li>
-        <li class="nav-item" id="contact"><a class="nav-link text-dark"
-            href="#">Contact Us</a></li>
+        <li *ngIf="show" class="nav-item text-light"><a
+            class="nav-link text-light active" >Hi,{{name}}</a></li>
+        <li *ngIf="cart" class="nav-item text-light"><a
+            class="nav-link text-light active" (click)="cartShow()">My Cart</a></li>
+            <li *ngIf="logout"class="nav-item text-light"><a
+                class="nav-link text-light active" (click)="Logout()" >Logout</a></li>
+                <li *ngIf="adminlogin"class="nav-item text-light"><a
+                    class="nav-link text-light active" (click)="admin()" >Login as Admin</a></li>
+                    <li *ngIf="goback"class="nav-item text-light"><a
+                        class="nav-link text-light active" (click)="Goback()" >Go Back</a></li>
+                
+    
 
                 </ul>
-   
+               
+                
 </nav>
+<br>
+<div>
 <router-outlet></router-outlet>
-<footer class="page-footer font-small pt-4">
-
-
-    <div class="footer-copyright py-3 bg-dark text-white">
-        <small>Retailers © 2020 Copyright </small>
-
-    </div>
-</footer>
+</div>
 </body>
 </html>

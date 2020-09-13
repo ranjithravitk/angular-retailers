@@ -6,3 +6,10 @@ footer {
     /* Height of the footer*/  
     height: 50px; 
 } 
+div{
+    background-color: blueviolet;
+ 
+}
+nav {
+    border: 1px solid grey;
+}

@@ -23,7 +23,7 @@
 <body>
 	
 
-	<div ng-app="login" ng-controller="myCtrl">
+	<div ng-app="admin" ng-controller="myCtrl">
 		<div class="container-fixed">
 			<div class="row align-items-center ">
 				<div class="col-4 mx-auto">
@@ -50,9 +50,7 @@
 								</div>
 
 								<input type="submit" class="btn btn-primary mb-3"[disabled]="!myForm.form.valid" value="Login"><br>
-								<small>Don't have an account? <a [routerLink]="['/signup']" >sign
-										up</a>
-								</small>
+								
 							</form>
 
 
@@ -63,15 +61,7 @@
 
 		</div>
 
-		<div class="row d-flex justify-content-center">
-			<div class="col-4 mx-auto">
-			<div *ngIf="check==false" class="card">
-			  <div class="card-header text-danger bg-dark">
-				User Credentials doesn't exist!!!
-			  </div>
-			  </div>
-			</div>
-		  </div>
+		
 
 	</div>
 

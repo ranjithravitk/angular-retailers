@@ -3,4 +3,7 @@ export class product{
     price:number;
     quantity:number;
     cart:boolean;
+    userQuantity:number;
+    outOfStock:boolean;
+    user:string
 }

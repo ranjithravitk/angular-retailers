@@ -20,12 +20,12 @@
 
 <body>
    
-<div *ngFor="let p of items">
+<div *ngFor="let p of products">
 <div class="row d-flex justify-content-center">
    
       <div class="card   w-75">
         
-        <div class="card-body bg-light text-dark ">
+        <div class="card-body ">
           <div class="container">
           
           <div class="row">
@@ -57,41 +57,37 @@
                 <strong>Quantity:</strong> 
               </div>
               <div class="col-sm">
-                <p *ngIf="p.quantity==0" class="text-danger">out of Stock!!!</p>
-                <input *ngIf="p.quantity!=0"
+                
+                <input 
                 type="text" class="form-control" 
-                name="quantity" [(ngModel)]=p.userQuantity  required>
+                name="quantity" [(ngModel)]=p.quantity  required>
               </div>
               <div class="col-sm">
-               
+                <p *ngIf="p.quantity==0" class="text-danger">out of Stock!!!</p>
               </div>
             </div>
             <br>
             <div class="row">
-              <div class="col-sm">
-               <strong>Total:</strong> 
+              <div class="col-sm align-self-center">
+                
               </div>
               <div class="col-sm">
-               Rs. {{p.userQuantity * p.price}}
+                <div >
+                  <button class="btn btn-primary" (click)="add(p)">Add</button></div>
               </div>
               <div class="col-sm">
                 
               </div>
             </div>
+            <br>
+            </div>
           </div>
-           
-          
-           
-           </div>
-          
-        
-          <button class="btn btn-primary"  [disabled]="p.quantity==0" (click)="add(p)">Add to cart</button>
         </div>
-        
       </div>
-     
-    <br>
+   <br>
    </div>
-  
+   <div *ngIf="empty">
+    <div class="d-flex d-flex justify-content-around"> {{message}}</div></div><br>
+   <div class="d-flex d-flex justify-content-around"> <button class="btn btn-primary" (click)="back()">Go Back To Home</button></div>
 </body>
 </html>

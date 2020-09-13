@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray } from '@angular/forms';
-import {Router, UrlSerializer} from'@angular/router';
+import {Router} from'@angular/router';
 import{user} from '../loginUser'
 import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import{LoginServiceService} from'../login-service.service'
@@ -20,9 +20,7 @@ check:boolean
     
     
   }
-  signup(){
-    this.router.navigateByUrl('/signup');
-  }
+ 
   home(){
     this.router.navigate(['/home',this.login.name]);
   }
@@ -32,10 +30,11 @@ check:boolean
 verify(){
   
   this.loginService.save(this.login).subscribe(data => {
-    
-    if(data){
+    this.check=data
+    if(this.check){
       this.home()
       } 
+     
   });
   
 
